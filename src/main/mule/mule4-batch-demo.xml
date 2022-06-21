@@ -7,7 +7,7 @@ http://www.mulesoft.org/schema/mule/batch http://www.mulesoft.org/schema/mule/ba
 http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd
 http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
 	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="e0052791-fec3-474f-b11f-f61f9709de5a">
-		<http:listener-connection host="0.0.0.0" port="8081" />
+		<http:listener-connection host="0.0.0.0" port="" />
 	</http:listener-config>
 	<flow name="mule4-batch-demoFlow" doc:id="9d1c1666-14dd-48a9-96bd-d810625699e7" >
 		<http:listener path="/batch-start" doc:name="Listener" doc:id="d18d1a14-21a7-4767-8883-4f7d4be830c1" config-ref="HTTP_Listener_config"/>
@@ -67,7 +67,7 @@ output application/java
 		</ee:transform>
 	</sub-flow>
 	<sub-flow name="batch-step-2-process" doc:id="2f446753-f1f6-455a-8277-af1ebae2c42d">
-		<logger message="#['Processing Step 2 for id ' ++ vars.recordId ++ ' with status ' ++ payload.status]" level="INFO" doc:name="Logger"/>
+		<logger message="#['Processing Step 2 for id ' + vars.recordId ++ ' with status ' + payload.status]" level="INFO" doc:name="Logger"/>
 	</sub-flow>
 	<sub-flow name="batch-step-3-process" doc:id="2f446753-f1f6-455a-8277-af1ebae2c42d">
 		<logger message="#['Processing Step 3 for id ' ++ vars.recordId ++ ' with status ' ++ payload.status]" level="INFO" doc:name="Logger"/>
