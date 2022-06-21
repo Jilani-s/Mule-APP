@@ -52,7 +52,7 @@ output application/java
 		</batch:job>
 		<logger doc:name="Logger" message="#['Done']" level="INFO"/>
 	</flow>
-	<sub-flow name="batch-step-1-process" doc:id="2f446753-f1f6-455a-8277-af1ebae2c42d">
+	<sub-flow name="batch-step-1-process" doc:id="">
 		<logger message="#['PRocessing Step 1 with id - ' ++ payload.id]" level="INFO" doc:name="Logger"/>
 		<set-variable variableName="recordId" value="#[payload.id]" doc:name="Set Variable"/>
 		<ee:transform doc:name="Transform Message" doc:id="20d74358-8d0f-4399-9f55-5e766777b606" >
@@ -65,6 +65,9 @@ output application/java
 )]]></ee:set-payload>
 			</ee:message>
 		</ee:transform>
+	</sub-flow>
+	<sub-flow name="batch-step-2-process" doc:id="2f446753-f1f6-455a-8277-af1ebae2c42d">
+		<logger message="#['Processing Step 2 for id ' + vars.recordId ++ ' with status ' + payload.status]" level="INFO" doc:name="Logger"/>
 	</sub-flow>
 	<sub-flow name="batch-step-2-process" doc:id="2f446753-f1f6-455a-8277-af1ebae2c42d">
 		<logger message="#['Processing Step 2 for id ' + vars.recordId ++ ' with status ' + payload.status]" level="INFO" doc:name="Logger"/>
