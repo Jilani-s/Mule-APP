@@ -75,4 +75,7 @@ output application/java
 	<sub-flow name="batch-step-3-process" doc:id="2f446753-f1f6-455a-8277-af1ebae2c42d">
 		<logger message="#['Processing Step 3 for id ' ++ vars.recordId ++ ' with status ' ++ payload.status]" level="INFO" doc:name="Logger"/>
 	</sub-flow>
+	<sub-flow name="batch-step-2-process" doc:id="2f446753-f1f6-455a-8277-af1ebae2c42d">
+		<logger message="#['Processing Step 2 for id ' ++ vars.recordId ++ ' with status ' ++ payload.status]" level="INFO" doc:name="Logger"/>
+	</sub-flow>
 </mule>
