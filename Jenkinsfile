@@ -6,7 +6,6 @@ pipeline {
             steps {
               withSonarQubeEnv(credentialsId: 'sqj') {
     sonar.projectKey=com.mycompany:mule4-batch-demo
-              }
 sonar.host.url=http://44.197.198.219:9000/
 sonar.login=abfd7b79ef38ab571e685d5e77d5f26d298c1f19
 sonar.login=admin
@@ -23,4 +22,4 @@ sonar.sources=/var/lib/jenkins/workspace/Mule-APP
             }
           }
         }
-      }
+      
